@@ -1,0 +1,28 @@
+// Paste the entire let...in expression below into one blank query.
+// Rename the query Customers. Authenticate through the connector prompt.
+let
+    ServerName = "localhost:3306",
+    DatabaseName = "policybazaar_db",
+    Source = MySQL.Database(ServerName, DatabaseName, [ReturnSingleDatabase=true, TreatTinyAsBoolean=false]),
+    View = Source{[Schema=DatabaseName, Item="vw_customer_analytics"]}[Data],
+    Typed = Table.TransformColumnTypes(View, {
+        {"id", Int64.Type},
+        {"Gender", type text},
+        {"Age", Int64.Type},
+        {"Driving_License", Int64.Type},
+        {"Region_Code", Int64.Type},
+        {"Previously_Insured", Int64.Type},
+        {"Vehicle_Age", type text},
+        {"Vehicle_Damage", type text},
+        {"Annual_Premium", Currency.Type},
+        {"Policy_Sales_Channel", Int64.Type},
+        {"Vintage", Int64.Type},
+        {"Response", Int64.Type},
+        {"Age_Group", type text},
+        {"Age_Group_Sort", Int64.Type},
+        {"Previous_Insurance_Status", type text},
+        {"Vehicle_Damage_Category", type text},
+        {"Interest_Status", type text},
+        {"Vehicle_Age_Sort", Int64.Type}})
+in
+    Typed

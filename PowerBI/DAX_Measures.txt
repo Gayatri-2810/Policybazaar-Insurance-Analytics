@@ -1,0 +1,40 @@
+// Create each measure separately with Modeling > New measure. Table name: Customers.
+// Format strings are listed as comments, not part of each formula.
+// Empty denominator: BLANK; no automatic zero percent for an empty selection.
+// KEEPFILTERS makes contradictory Response/insurance selections return zero.
+
+// Format: #,0
+Total Customers = COUNTROWS(Customers)
+
+// Format: #,0
+Interested Customers = COALESCE(CALCULATE([Total Customers], KEEPFILTERS(Customers[Response] = 1)), 0)
+
+// Format: #,0
+Not Interested Customers = COALESCE(CALCULATE([Total Customers], KEEPFILTERS(Customers[Response] = 0)), 0)
+
+// Format: 0.00%
+Interest Rate % = DIVIDE([Interested Customers], [Total Customers])
+
+// Format: #,0.00
+Total Recorded Annual Premium = SUM(Customers[Annual_Premium])
+
+// Format: #,0.00
+Average Annual Premium = AVERAGE(Customers[Annual_Premium])
+
+// Format: 0.00
+Average Customer Age = AVERAGE(Customers[Age])
+
+// Format: #,0
+Previously Insured Customers = COALESCE(CALCULATE([Total Customers], KEEPFILTERS(Customers[Previously_Insured] = 1)), 0)
+
+// Format: #,0
+Not Previously Insured Customers = COALESCE(CALCULATE([Total Customers], KEEPFILTERS(Customers[Previously_Insured] = 0)), 0)
+
+// Format: #,0.00
+Median Annual Premium = MEDIAN(Customers[Annual_Premium])
+
+// Format: 0.00%
+Not Interested Rate % = DIVIDE([Not Interested Customers], [Total Customers])
+
+// Format: 0
+Channel Sample Eligible = IF([Total Customers] >= 1000, 1, 0)

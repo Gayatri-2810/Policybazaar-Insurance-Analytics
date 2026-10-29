@@ -1,0 +1,28 @@
+{
+  "name": "Insurance Analytics Navy Blue",
+  "dataColors": [
+    "#1671F3",
+    "#8DBDFA",
+    "#0B2B55",
+    "#38A3D1",
+    "#567FC4",
+    "#BBD9FB"
+  ],
+  "background": "#F3F8FE",
+  "foreground": "#0B2B55",
+  "tableAccent": "#1671F3",
+  "textClasses": {
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28
+    }
+  }
+}

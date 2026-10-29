@@ -1,7 +1,7 @@
 Insurance Analytics | Power BI & MySQL
 An interactive, three-page Power BI report exploring customer insurance interest, annual premium distributions, and sales-channel performance across 381,109 customer records.
 
-Created by Gayatri Deshmukh as an independent portfolio project inspired by insurance marketplaces such as Policybazaar.
+ An independent portfolio project inspired by insurance marketplaces such as Policybazaar.
 This project uses a public insurance cross-sell dataset, not internal Policybazaar data. Response = 1 indicates interest in vehicle insurance, not a confirmed purchase. Premium currency is unspecified, and channel codes do not identify online/offline channels. The dataset does not support calendar-based trends.
 
 Project objective
